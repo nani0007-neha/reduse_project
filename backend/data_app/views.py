@@ -41,3 +41,10 @@ class RecipeDetailView(generics.RetrieveAPIView):
 
     queryset = Recipe.objects.all()
     serializer_class = RecipeDetailSerializer
+
+from .models import FoodDisposalGuidance
+from .serializers import FoodDisposalGuidanceSerializer
+
+class FoodDisposalGuidanceList(generics.ListAPIView):
+    queryset = FoodDisposalGuidance.objects.all().order_by("food_category")
+    serializer_class = FoodDisposalGuidanceSerializer

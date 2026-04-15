@@ -24,5 +24,16 @@ class Recipe(models.Model):
     rating = models.FloatField(blank=True, null=True)
     source_url = models.URLField(max_length=500, blank=True, null=True)
 
+class FoodDisposalGuidance(models.Model):
+    food_category = models.CharField(max_length=100, unique=True)
+    label = models.CharField(max_length=255)
+    stream = models.CharField(max_length=255)
+    steps = models.TextField()
+    notes = models.TextField(blank=True)
+    source_link = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.label
+
     def __str__(self):
         return f"{self.title} ({self.recipe_id})"

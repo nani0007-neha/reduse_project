@@ -160,7 +160,7 @@ STORAGES = {
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",             
-    "https://czhu0048-hash.github.io/FIT5120-Consumption-Advisor",     # their deployed frontend
+    "https://czhu0048-hash.github.io",     # their deployed frontend
 ]
 
 CSRF_TRUSTED_ORIGINS = [

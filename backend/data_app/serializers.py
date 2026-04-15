@@ -28,3 +28,19 @@ class RecipeDetailSerializer(serializers.ModelSerializer):
             "ingredients_clean",
             "instructions",
         ]
+
+
+from .models import FoodDisposalGuidance
+
+class FoodDisposalGuidanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FoodDisposalGuidance
+        fields = [
+            "id",
+            "food_category",
+            "label",
+            "stream",
+            "steps",
+            "notes",
+            "source_link",
+        ]
