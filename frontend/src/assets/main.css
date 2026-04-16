@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+label {
+  font-family: 'Nunito', sans-serif;
+}
+
+button {
+  font-family: 'Nunito', sans-serif;
+
+}
+
+.basic {
+  background-color: white
+}
+
+.bg_main {
+  background-color: darkgreen;
+}
+
+.bg_sub {
+  background-color: darkgreen;
+}
+
+.font_main {
+  font-size: 150%;
+  color: aliceblue
+}
+
+.font_sub {
+  color: darkgreen;
+}
+
+.button_main {
+  background-color: chartreuse;
+  border-radius: 5rem;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.button_sub {
+  background-color: beige;
+  border-radius: 5rem;
+}

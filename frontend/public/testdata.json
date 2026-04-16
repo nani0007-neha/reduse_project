@@ -1,0 +1,18 @@
+[
+  {
+    "id": 863,
+    "recipe_id": 863,
+    "title": "Slow Cooker Chicken Tagine",
+    "image_url": "https://www.allrecipes.com/thmb/0do5jsAsoXEA6uaTCWqLcS4U5Ik=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6259376-9f9152a84c184f2f8a23357113d435b9.jpg",
+    "total_time_mins": 315,
+    "difficulty": "Hard"
+  },
+  {
+    "id": 866,
+    "recipe_id": 866,
+    "title": "Moroccan Beef and Lentil Stew",
+    "image_url": "https://www.allrecipes.com/thmb/rYDhUb6ROOT--MmEzWC26HOIPmA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7756081-b698229719014b408d930d1c02c7acf4.jpg",
+    "total_time_mins": 95,
+    "difficulty": "Hard"
+  }
+]
