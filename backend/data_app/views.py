@@ -51,6 +51,9 @@ class RecipeListView(generics.ListAPIView):
             ]
             for term in exclude_terms:
                 qs = qs.exclude(ingredients_clean__icontains=term)
+        
+        qs = qs.exclude(image_url__isnull=True).exclude(image_url__exact="")
+        qs = qs.order_by("image_url", "id").distinct("image_url")
 
         return qs
 
