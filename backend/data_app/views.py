@@ -18,17 +18,39 @@ class RecipeListView(generics.ListAPIView):
     def get_queryset(self):
         qs = Recipe.objects.all().order_by("id")
 
-        query = self.request.query_params.get("q")
-        if query:
-            # Split by comma or space into individual ingredients
-            raw_terms = [p.strip() for p in query.replace(",", " ").split()]
-            terms = [t for t in raw_terms if t]
+        # query = self.request.query_params.get("q")
+        # if query:
+        #     # Split by comma or space into individual ingredients
+        #     raw_terms = [p.strip() for p in query.replace(",", " ").split()]
+        #     terms = [t for t in raw_terms if t]
 
-            if terms:
-                q_obj = Q()
-                for term in terms:
-                    q_obj &= Q(ingredients_clean__icontains=term)
-                qs = qs.filter(q_obj)
+        #     if terms:
+        #         q_obj = Q()
+        #         for term in terms:
+        #             q_obj &= Q(ingredients_clean__icontains=term)
+        #         qs = qs.filter(q_obj)
+
+        # return qs
+        include = self.request.query_params.get("include")  
+        exclude = self.request.query_params.get("exclude")  
+
+        if include:
+            include_terms = [
+                t.strip().lower()
+                for t in include.split(",")
+                if t.strip()
+            ]
+            for term in include_terms:
+                qs = qs.filter(ingredients_clean__icontains=term)
+
+        if exclude:
+            exclude_terms = [
+                t.strip().lower()
+                for t in exclude.split(",")
+                if t.strip()
+            ]
+            for term in exclude_terms:
+                qs = qs.exclude(ingredients_clean__icontains=term)
 
         return qs
 
