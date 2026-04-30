@@ -6,6 +6,12 @@ from rest_framework import generics
 from .models import Recipe
 from .serializers import RecipeCardSerializer, RecipeDetailSerializer
 
+import csv
+from pathlib import Path
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
+
 
 class RecipeListView(generics.ListAPIView):
     """
@@ -73,3 +79,32 @@ from .serializers import FoodDisposalGuidanceSerializer
 class FoodDisposalGuidanceList(generics.ListAPIView):
     queryset = FoodDisposalGuidance.objects.all().order_by("food_category")
     serializer_class = FoodDisposalGuidanceSerializer
+
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+class TextilesYearSummaryView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, *args, **kwargs):
+        csv_path = BASE_DIR / "data" / "victoria_textiles_waste_year_summary.csv"
+        rows = []
+        with open(csv_path, newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                # Optionally cast numeric fields to float
+                for field in [
+                    "Disposal",
+                    "International Export",
+                    "Interstate Export",
+                    "processedlocallyincludingwte",
+                    "Total Generation",
+                    "recoveryratepct",
+                    "disposalratepct",
+                    "exportratepct",
+                ]:
+                    if field in row and row[field] != "":
+                        row[field] = float(row[field])
+                rows.append(row)
+        return Response(rows)
