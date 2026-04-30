@@ -12,6 +12,10 @@ class RecipeCardSerializer(serializers.ModelSerializer):
             "image_url",
             "total_time_mins",
             "difficulty",
+            "app_category",
+            "regional_cuisine",
+            "protein_class",
+            "fat_class",
         ]
 
 
