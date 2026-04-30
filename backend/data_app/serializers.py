@@ -27,6 +27,10 @@ class RecipeDetailSerializer(serializers.ModelSerializer):
             "difficulty",
             "ingredients_clean",
             "instructions",
+            "app_category",
+            "regional_cuisine",
+            "protein_class",
+            "fat_class",
         ]
 
 
