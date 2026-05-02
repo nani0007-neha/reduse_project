@@ -11,6 +11,7 @@ from pathlib import Path
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
+import pandas as pd
 
 
 class RecipeListView(generics.ListAPIView):
@@ -108,3 +109,97 @@ class TextilesYearSummaryView(APIView):
                         row[field] = float(row[field])
                 rows.append(row)
         return Response(rows)
+
+TEXTILES_XLSX_PATH = BASE_DIR / "data" / "victoria_textiles_waste_deployment_ready.xlsx"
+
+class TextilesExcelYearSummaryView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, *args, **kwargs):
+        df = pd.read_excel(
+            TEXTILES_XLSX_PATH,
+            sheet_name="year_summary",
+            engine="openpyxl",
+        )
+
+        # Normalise column names (optional but nice for frontend)
+        df = df.rename(columns={
+            "financial_year": "financial_year",
+            "financial_year_start": "financial_year_start",
+            "Disposal": "disposal",
+            "International Export": "international_export",
+            "Interstate Export": "interstate_export",
+            "processed_locally_including_wte": "processed_locally_including_wte",
+            "Total Generation": "total_generation",
+            "recovery_rate_pct": "recovery_rate_pct",
+            "disposal_rate_pct": "disposal_rate_pct",
+            "export_rate_pct": "export_rate_pct",
+        })
+
+        records = df.to_dict(orient="records")
+        return Response(records)
+
+class TextilesExcelMaterialSummaryView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, *args, **kwargs):
+        df = pd.read_excel(
+            TEXTILES_XLSX_PATH,
+            sheet_name="material_summary",
+            engine="openpyxl",
+        )
+
+        df = df.rename(columns={
+            "financial_year": "financial_year",
+            "financial_year_start": "financial_year_start",
+            "material_name_clean": "material_name",
+            "Disposal": "disposal",
+            "International Export": "international_export",
+            "Interstate Export": "interstate_export",
+            "processed_locally_including_wte": "processed_locally_including_wte",
+            "Total Generation": "total_generation",
+        })
+
+        records = df.to_dict(orient="records")
+        return Response(records)
+
+class TextilesExcelDetailView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, *args, **kwargs):
+        df = pd.read_excel(
+            TEXTILES_XLSX_PATH,
+            sheet_name="textiles_clean",
+            engine="openpyxl",
+        )
+
+        # Optional filters via query params
+        material = request.query_params.get("material")   # e.g. "Clothing"
+        sector = request.query_params.get("sector")       # e.g. "MSW"
+        year = request.query_params.get("year")           # e.g. "2022-2023"
+
+        if material:
+            df = df[df["material_name_clean"] == material]
+        if sector:
+            df = df[df["source_sector"] == sector]
+        if year:
+            df = df[df["financial_year"] == year]
+
+        df = df.rename(columns={
+            "financial_year": "financial_year",
+            "financial_year_start": "financial_year_start",
+            "material_name_clean": "material_name",
+            "source_sector": "source_sector",
+            "source_sector_label": "source_sector_label",
+            "Disposal": "disposal",
+            "International Export": "international_export",
+            "Interstate Export": "interstate_export",
+            "processed_locally_including_wte": "processed_locally_including_wte",
+            "Total Generation": "total_generation",
+            "recovery_rate_pct": "recovery_rate_pct",
+            "disposal_rate_pct": "disposal_rate_pct",
+            "export_rate_pct": "export_rate_pct",
+        })
+
+        records = df.to_dict(orient="records")
+        return Response(records)
