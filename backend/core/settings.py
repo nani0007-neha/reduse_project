@@ -160,7 +160,8 @@ STORAGES = {
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",             
-    "http://reduseaus.me",    
+    "http://reduseaus.me",  
+    "https://reduseaus.me"  
 ]
 
 CSRF_TRUSTED_ORIGINS = [
