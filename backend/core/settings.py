@@ -161,7 +161,9 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",             
     "http://reduseaus.me",  
-    "https://reduseaus.me"  
+    "https://reduseaus.me",
+    "https://iteration2.reduseaus.me/",
+    "https://iteration1.reduseaus.me/"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
