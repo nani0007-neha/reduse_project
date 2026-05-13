@@ -17,6 +17,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
 
 # Quick-start development settings - unsuitable for production
@@ -162,8 +163,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",             
     "http://reduseaus.me",  
     "https://reduseaus.me",
-    "https://iteration2.reduseaus.me/",
-    "https://iteration1.reduseaus.me/"
+    "https://iteration2.reduseaus.me",
+    "https://iteration1.reduseaus.me",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
