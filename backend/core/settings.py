@@ -170,3 +170,12 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     "https://" + os.getenv("WEBSITE_HOSTNAME", ""),
 ]
+
+# Product result cache settings
+CACHE_SCHEMA_VERSION = os.getenv("CACHE_SCHEMA_VERSION", "v1")
+PRODUCT_CACHE_DIR = BASE_DIR / "data" / "cache" / "products"
+PRODUCT_CACHE_TTL_HOURS = int(os.getenv("PRODUCT_CACHE_TTL_HOURS", "24"))
+PRODUCT_CACHE_STALE_FALLBACK = os.getenv("PRODUCT_CACHE_STALE_FALLBACK", "True").lower() == "true"
+
+# Ensure cache directory exists
+PRODUCT_CACHE_DIR.mkdir(parents=True, exist_ok=True)

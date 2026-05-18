@@ -1,0 +1,84 @@
+{
+  "cacheKey": "product-journey:v1:coke-zero-300ml",
+  "normalizedName": "coke zero 300ml",
+  "schemaVersion": "v1",
+  "createdAt": "2026-05-18T02:00:39.640589Z",
+  "expiresAt": "2026-05-19T02:00:39.640589Z",
+  "data": {
+    "objectName": "coke zero 300ml",
+    "displayName": "Coke Zero Can",
+    "heroTitle": "The hidden journey of your Coke Zero can.",
+    "heroSubtitle": "Understanding the lifecycle of this common drink helps reveal its impact on our world.",
+    "assumptionNote": "This journey is based on a typical aluminum beverage can.",
+    "objectVisual": {
+      "iconKey": "soda_can",
+      "category": "packaging"
+    },
+    "chapters": [
+      {
+        "id": "origin",
+        "stepNumber": 1,
+        "stepLabel": "ORIGIN",
+        "title": "From Raw Materials to Can",
+        "text": "Producing an aluminum can begins with mining bauxite ore. This ore is then processed into aluminum sheets, which are shaped and filled at bottling plants.",
+        "microFacts": [
+          "Bauxite ore mined",
+          "Aluminum processed",
+          "Cans formed, filled"
+        ],
+        "impactTitle": "Environmental impact",
+        "impactText": "Material extraction and processing require significant energy."
+      },
+      {
+        "id": "journey",
+        "stepNumber": 2,
+        "stepLabel": "JOURNEY",
+        "title": "Transporting Your Refreshment",
+        "text": "After filling, the cans are packaged and transported long distances. Distribution networks move them by trucks and ships to warehouses and retail stores globally.",
+        "microFacts": [
+          "Bulk transport to stores",
+          "Warehousing",
+          "Retail delivery"
+        ],
+        "impactTitle": "Environmental impact",
+        "impactText": "Logistics and transport contribute to carbon emissions."
+      },
+      {
+        "id": "purchase",
+        "stepNumber": 3,
+        "stepLabel": "PURCHASE",
+        "title": "The Moment of Choice",
+        "text": "This small can is often bought for convenience or habit. Its single-use nature makes it easy to consume quickly and then discard, often without much thought.",
+        "microFacts": [
+          "Impulse buy",
+          "Quick consumption",
+          "Convenience factor"
+        ],
+        "impactTitle": "Key insight",
+        "impactText": "Consumer habits significantly influence product demand."
+      },
+      {
+        "id": "end_of_life",
+        "stepNumber": 4,
+        "stepLabel": "END OF LIFE",
+        "title": "What Happens Next?",
+        "text": "Once empty, your can can be recycled, which saves significant energy. However, if not properly sorted, it likely ends up in landfill, lasting for centuries.",
+        "microFacts": [
+          "Recycling possible",
+          "Energy saved",
+          "Landfill if not sorted"
+        ],
+        "impactTitle": "Environmental impact",
+        "impactText": "Improper disposal leads to lasting waste."
+      }
+    ],
+    "summaryPanel": {
+      "title": "Reflect and Act",
+      "text": "Understanding your everyday objects helps empower you to make more mindful decisions.",
+      "ctaPrimary": "Explore another object",
+      "ctaSecondary": "Learn sustainable alternatives"
+    },
+    "oneSmallChange": "Opt for a refillable drink container instead.",
+    "closingStatement": "Small changes, big collective impact."
+  }
+}

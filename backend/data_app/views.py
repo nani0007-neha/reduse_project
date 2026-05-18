@@ -21,6 +21,18 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
+from django.conf import settings
+
+from .cache_utils import (
+    normalize_product_name,
+    build_cache_key,
+    load_cache_record,
+    is_cache_fresh,
+    save_cache_record,
+    extract_retry_delay_seconds,
+    is_quota_error,
+)
+
 
 class RecipeListView(generics.ListAPIView):
     """
@@ -497,7 +509,29 @@ def product_journey_view(request):
     if len(object_name) > 100:
         return JsonResponse({"error": "objectName is too long"}, status=400)
 
-    prompt = build_product_journey_prompt(object_name)
+    normalized_name = normalize_product_name(object_name)
+    if not normalized_name:
+        return JsonResponse({"error": "objectName is invalid"}, status=400)
+
+    cache_key = build_cache_key(normalized_name)
+    cache_record = load_cache_record(cache_key)
+
+    if cache_record and is_cache_fresh(cache_record):
+        return JsonResponse(
+            {
+                "success": True,
+                "source": "cache",
+                "stale": False,
+                "data": cache_record["data"],
+            },
+            status=200,
+        )
+
+    stale_cache_data = None
+    if cache_record and settings.PRODUCT_CACHE_STALE_FALLBACK:
+        stale_cache_data = cache_record.get("data")
+
+    prompt = build_product_journey_prompt(normalized_name)
 
     payload = {
         "contents": [
@@ -521,13 +555,52 @@ def product_journey_view(request):
             timeout=30,
         )
     except requests.RequestException:
+        if stale_cache_data:
+            return JsonResponse(
+                {
+                    "success": True,
+                    "source": "cache",
+                    "stale": True,
+                    "message": "Showing the latest saved result because live refresh is temporarily unavailable.",
+                    "data": stale_cache_data,
+                },
+                status=200,
+            )
+
         return JsonResponse({"error": "Failed to reach Gemini"}, status=502)
 
     if response.status_code != 200:
+        response_text = response.text
+
+        if is_quota_error(response.status_code, response_text):
+            retry_after_seconds = extract_retry_delay_seconds(response_text)
+
+            if stale_cache_data:
+                payload = {
+                    "success": True,
+                    "source": "cache",
+                    "stale": True,
+                    "message": "Showing the latest saved result because live refresh is temporarily unavailable.",
+                    "data": stale_cache_data,
+                }
+                if retry_after_seconds is not None:
+                    payload["retryAfterSeconds"] = retry_after_seconds
+                return JsonResponse(payload, status=200)
+
+            error_payload = {
+                "success": False,
+                "errorCode": "AI_QUOTA_EXCEEDED",
+                "message": "Sorry, live results are temporarily unavailable. Please try again later.",
+            }
+            if retry_after_seconds is not None:
+                error_payload["retryAfterSeconds"] = retry_after_seconds
+
+            return JsonResponse(error_payload, status=429)
+
         return JsonResponse(
             {
                 "error": "Gemini request failed",
-                "details": response.text,
+                "details": response_text,
             },
             status=502,
         )
@@ -537,9 +610,44 @@ def product_journey_view(request):
         text_output = gemini_data["candidates"][0]["content"]["parts"][0]["text"]
         structured_data = json.loads(text_output)
     except (KeyError, IndexError, TypeError, json.JSONDecodeError):
+        if stale_cache_data:
+            return JsonResponse(
+                {
+                    "success": True,
+                    "source": "cache",
+                    "stale": True,
+                    "message": "Showing the latest saved result because live refresh is temporarily unavailable.",
+                    "data": stale_cache_data,
+                },
+                status=200,
+            )
+
         return JsonResponse({"error": "Invalid model response"}, status=502)
 
     if not validate_product_journey_output(structured_data):
+        if stale_cache_data:
+            return JsonResponse(
+                {
+                    "success": True,
+                    "source": "cache",
+                    "stale": True,
+                    "message": "Showing the latest saved result because live refresh is temporarily unavailable.",
+                    "data": stale_cache_data,
+                },
+                status=200,
+            )
+
         return JsonResponse({"error": "Incomplete model response"}, status=502)
 
-    return JsonResponse(format_product_journey_response(structured_data), status=200)
+    formatted_data = format_product_journey_response(structured_data)
+    save_cache_record(cache_key, normalized_name, formatted_data)
+
+    return JsonResponse(
+        {
+            "success": True,
+            "source": "live",
+            "stale": False,
+            "data": formatted_data,
+        },
+        status=200,
+    )

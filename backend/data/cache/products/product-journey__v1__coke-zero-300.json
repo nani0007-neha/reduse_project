@@ -1,0 +1,84 @@
+{
+  "cacheKey": "product-journey:v1:coke-zero-300",
+  "normalizedName": "coke zero 300",
+  "schemaVersion": "v1",
+  "createdAt": "2026-05-18T02:05:20.103073Z",
+  "expiresAt": "2026-05-19T02:05:20.103073Z",
+  "data": {
+    "objectName": "coke zero can",
+    "displayName": "Coke Zero Can",
+    "heroTitle": "The hidden journey of your Coke Zero Can",
+    "heroSubtitle": "Understanding its life cycle reveals how daily choices impact the planet.",
+    "assumptionNote": "This journey is a typical example of similar beverage cans.",
+    "objectVisual": {
+      "iconKey": "soda_can",
+      "category": "packaging"
+    },
+    "chapters": [
+      {
+        "id": "origin",
+        "stepNumber": 1,
+        "stepLabel": "ORIGIN",
+        "title": "From Raw Materials to Can",
+        "text": "Aluminum ore is mined, refined into metal sheets, and then shaped into beverage cans and lids. The syrup and water are mixed and filled.",
+        "microFacts": [
+          "Mining bauxite ore",
+          "Aluminum smelting",
+          "Can manufacturing plants"
+        ],
+        "impactTitle": "Environmental impact",
+        "impactText": "Mining and production are energy-intensive processes."
+      },
+      {
+        "id": "journey",
+        "stepNumber": 2,
+        "stepLabel": "JOURNEY",
+        "title": "Travel to Your Local Store",
+        "text": "Filled cans are sealed, packaged into cases, and transported by truck or ship to distribution centers. From there, they reach your local store shelves.",
+        "microFacts": [
+          "Factory to warehouse",
+          "Truck or ship transport",
+          "Local store delivery"
+        ],
+        "impactTitle": "Environmental impact",
+        "impactText": "Extensive transport contributes to carbon emissions and air pollution."
+      },
+      {
+        "id": "purchase",
+        "stepNumber": 3,
+        "stepLabel": "PURCHASE",
+        "title": "A Quick Choice on the Go",
+        "text": "You likely grab a can for convenience, a quick refreshment, or as part of a meal. Marketing and placement often influence this fast decision.",
+        "microFacts": [
+          "Impulse buying",
+          "Drinks aisle selection",
+          "Convenience stores"
+        ],
+        "impactTitle": "Key insight",
+        "impactText": "Many beverage purchases are quick, habitual decisions."
+      },
+      {
+        "id": "end_of_life",
+        "stepNumber": 4,
+        "stepLabel": "END-OF-LIFE",
+        "title": "Disposal and Beyond",
+        "text": "After enjoyment, the empty can is typically recycled through municipal programs. However, some cans are littered or end up in landfills, impacting nature.",
+        "microFacts": [
+          "Recycling programs",
+          "Landfill waste",
+          "Energy for processing"
+        ],
+        "impactTitle": "Environmental impact",
+        "impactText": "Recycling saves resources, but not all cans are recycled."
+      }
+    ],
+    "summaryPanel": {
+      "title": "Your Impact Matters",
+      "text": "Understanding product journeys helps us make more conscious choices for a sustainable future.",
+      "ctaPrimary": "Explore another object",
+      "ctaSecondary": "Learn sustainable alternatives"
+    },
+    "oneSmallChange": "Opt for reusable bottles or larger, shared beverage containers.",
+    "closingStatement": "Every choice shapes our world."
+  }
+}
