@@ -14,12 +14,18 @@
   },
   "dependencies": {
     "@google/genai": "^1.48.0",
+    "@primevue/themes": "^4.5.4",
+    "apexcharts": "^5.10.6",
+    "axios": "^1.16.0",
     "bootstrap": "^5.3.8",
     "papaparse": "^5.5.3",
     "primeicons": "^7.0.0",
+    "primevue": "^4.5.5",
     "router": "^2.2.0",
+    "sweetalert2": "^11.26.24",
     "vue": "^3.5.30",
-    "vue-router": "^5.0.4"
+    "vue-router": "^5.0.4",
+    "vue3-apexcharts": "^1.11.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -8,7 +8,7 @@
       // Stores the current URL and redirects to index.html
       sessionStorage.redirect = location.href
       var l = window.location
-      var pathSegmentsToKeep = 1 // Keep repo name segment
+      var pathSegmentsToKeep = 0 // Redirects to repo
       l.replace(
         l.protocol +
           '//' +
