@@ -1,0 +1,49 @@
+{
+  "scoreMappings": [
+    {
+      "range": [7, 10],
+      "label": "JUSTIFIED",
+      "badge": "✅",
+      "status": "Yeah, go for it.",
+      "headline": "Rare W from a quiz, but here we are.",
+      "body": "You'll actually wear it, you've done the homework, and it fills a real gap. Honestly? This one passes the vibe check.",
+      "tip": "Want to make it last even longer?"
+    },
+    {
+      "range": [3, 6],
+      "label": "THINK TWICE",
+      "badge": "⚠️",
+      "status": "Hmm…hold that thought…?",
+      "headline": "Not a 'no', just a 'wait 48 hours and see.'",
+      "body": "Not saying don't buy it. Just saying a quick pause could save you some cash and wardrobe space.",
+      "tip": "Still tempted?"
+    },
+    {
+      "range": [0, 2],
+      "label": "AVOID",
+      "badge": "🔴",
+      "status": "Mate, we need to talk...",
+      "headline": "The cart can wait.",
+      "body": "The vibes aren't there. Heart aside, your future self will thank you for passing.",
+      "tip": "Curious what it'd cost per wear?"
+    }
+  ],
+  "dynamicReasons": {
+    "q2": {
+      "3": "One wear, then it lives rent-free in your wardrobe forever. Sounds familiar?"
+    },
+    "q3": {
+      "2": "Your eyes now: obsessed. Also you in the future at 2am doing a wardrobe clearout: less sure.",
+      "3": "Saving 40% on something you didn't need is still spending 60%. Still a good deal?"
+    },
+    "q4": {
+      "2": "So you'd have two of basically the same thing. A collection or a problem? Your call."
+    },
+    "q5": {
+      "2": "There's a version of this sitting in someone's wardrobe right now, waiting to be yours for half the price. Worth a look!"
+    },
+    "q6": {
+      "2": "It's giving fast fashion math: low price, low lifespan, somehow still expensive per wear."
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "help": "https://data.gov.au/data/api/3/action/help_show?name=package_show",
+  "success": true,
+  "result": {
+    "archived": false,
+    "author": " Department of Climate Change, Energy, the Environment and Water",
+    "author_email": null,
+    "contact_point": "wastedata@dcceew.gov.au",
+    "creator_user_id": "ea7d8558-a85b-4296-b424-a5e85ee198f8",
+    "duplicate_score": 1,
+    "geospatial_topic": ["environment"],
+    "id": "32412c88-2a44-4aeb-856b-b717e34e0d27",
+    "isopen": false,
+    "language": "",
+    "license_id": "cc-by-2.5",
+    "license_title": "Creative Commons Attribution 2.5 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/2.5/au/",
+    "maintainer": null,
+    "maintainer_email": null,
+    "metadata_created": "2024-12-11T00:41:23.147210",
+    "metadata_modified": "2025-08-21T00:39:18.271349",
+    "name": "nwd2024",
+    "notes": "The Department of Climate Change, Energy, the Environment and Water is committed to delivering comprehensive, accessible, and timely waste and resource recovery data to inform industry, investor, and government investment and policy decision-making.\r\n\r\nThe National Waste and Resource Recovery Database 2024 provides data on Australia\u2019s waste generation, including on the recovery and fate of all waste streams and various material categories from 2006-07 to 2022-23. The data is presented in a machine-readable format which is suitable for interrogation through Power BI or similar tools.\r\n\r\nFurther information on National Waste and Resource Recovery Reporting can be accessed here: https://www.dcceew.gov.au/environment/protection/waste/publications/2024",
+    "num_resources": 1,
+    "num_tags": 10,
+    "organization": {
+      "id": "7575ccb3-ce6b-4aa2-a69b-8b620fe55b55",
+      "name": "dcceew",
+      "title": "Australian Government Department of Climate Change, Energy, the Environment and Water",
+      "type": "organization",
+      "description": "The Department of Climate Change, Energy, the Environment and Water (DCCEEW) was formed on 1 July 2022.",
+      "image_url": "https://data.gov.au/data/dataset/1c502b45-a688-4daa-bfc0-06cb36899b52/resource/fb79bc37-557b-4d3c-abac-819cdfaf6e5c/download/cceew-stacked-black.png",
+      "created": "2013-05-12T07:41:45.287023",
+      "is_organization": true,
+      "approval_status": "approved",
+      "state": "active"
+    },
+    "original_harvest_source": {
+      "site_url": "https://data.gov.au/data/dataset/",
+      "href": "https://data.gov.au/data/dataset/nwd2024",
+      "title": "data.gov.au"
+    },
+    "owner_org": "7575ccb3-ce6b-4aa2-a69b-8b620fe55b55",
+    "private": false,
+    "promotion_level": "0",
+    "spatial": "{\"type\": \"Point\",\"coordinates\": [137.13828,-28.61389]}",
+    "spatial_coverage": "SA0003560: Australia",
+    "state": "active",
+    "temporal_coverage_from": "2006-07-01 00:00:00",
+    "temporal_coverage_to": "2023-07-01 00:00:00",
+    "title": "National Waste and Resource Recovery Database 2024",
+    "type": "dataset",
+    "unpublished": false,
+    "url": null,
+    "version": null,
+    "resources": [
+      {
+        "cache_last_updated": null,
+        "cache_url": null,
+        "created": "2024-12-11T00:59:08.628865",
+        "datastore_active": false,
+        "datastore_contains_all_records_of_source_file": false,
+        "description": "The Department of Climate Change, Energy, the Environment and Water is committed to delivering comprehensive, accessible, and timely waste and resource recovery data to inform industry, investor, and government investment and policy decision-making.  \r\n\r\nThe National Waste and Resource Recovery Database 2024 provides data on Australia\u2019s waste generation, including on the recovery and fate of all waste streams and various material categories from 2006-07 to 2022-23. The data is presented in a machine-readable format which is suitable for interrogation through Power BI or similar tools. \r\n\r\nFurther information on National Waste and Resource Recovery Reporting can be accessed here: https://www.dcceew.gov.au/environment/protection/waste/publications/2024\r\n",
+        "format": "XLS",
+        "hash": "",
+        "id": "a109a9e5-8945-4de6-8951-e2d687586e5d",
+        "last_modified": "2025-03-05T04:50:18.577889",
+        "metadata_modified": "2025-08-21T00:39:18.282966",
+        "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "mimetype_inner": null,
+        "name": "National Waste and Resource Recovery Database 2024",
+        "package_id": "32412c88-2a44-4aeb-856b-b717e34e0d27",
+        "position": 0,
+        "resource_type": null,
+        "size": 1315615,
+        "state": "active",
+        "url": "https://data.gov.au/data/dataset/32412c88-2a44-4aeb-856b-b717e34e0d27/resource/a109a9e5-8945-4de6-8951-e2d687586e5d/download/national-waste-and-resource-recovery-database-2024.xlsx",
+        "url_type": "upload",
+        "zip_extract": false
+      }
+    ],
+    "tags": [
+      {
+        "display_name": "Environment",
+        "id": "7bc851e2-be5b-4dea-b133-b57a2ab0c7e9",
+        "name": "Environment",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "energy",
+        "id": "37c6e5a5-2036-44bd-a4d0-6820265cf814",
+        "name": "energy",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "glass",
+        "id": "aaaf39eb-2910-45d0-9f8d-b0ca87d908f6",
+        "name": "glass",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "metals",
+        "id": "3ccf5766-23dd-4085-8130-479e8c0701e2",
+        "name": "metals",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "organics",
+        "id": "e67d9b8c-c0c9-4f2e-ad36-4becf438f1a7",
+        "name": "organics",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "paper and cardboard",
+        "id": "fbf5ac5c-e666-4125-a259-148724b0f17a",
+        "name": "paper and cardboard",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "plastics",
+        "id": "03d0978a-2e0e-48d7-962f-ef4a9b809c73",
+        "name": "plastics",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "recovery",
+        "id": "ce4504bf-6fe3-4793-9666-183c132a365c",
+        "name": "recovery",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "recycling",
+        "id": "8ed29297-573b-443b-b61c-77853b15c5f2",
+        "name": "recycling",
+        "state": "active",
+        "vocabulary_id": null
+      },
+      {
+        "display_name": "waste",
+        "id": "b564b341-4c94-4681-90f4-76272ce1d3f6",
+        "name": "waste",
+        "state": "active",
+        "vocabulary_id": null
+      }
+    ],
+    "groups": [],
+    "relationships_as_subject": [],
+    "relationships_as_object": []
+  }
+}
