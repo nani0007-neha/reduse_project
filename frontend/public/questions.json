@@ -1,0 +1,69 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "type": "category",
+      "text": "What are you eyeing?",
+      "options": [
+        { "text": "Tops", "points": 0 },
+        { "text": "Bottoms", "points": 0 },
+        { "text": "Outerwear", "points": 0 },
+        { "text": "Shoes", "points": 0 },
+        { "text": "Accessories", "points": 0 },
+        { "text": "Formal wear", "points": 0 }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "When would you actually wear this?",
+      "subLabel": "Be honest.",
+      "options": [
+        { "text": "Every day/ all the time", "points": 2 },
+        { "text": "Mix of occasions (work, going out, etc.)", "points": 2 },
+        { "text": "Specific event only (like a wedding)", "points": 1 },
+        { "text": "Just the one occasion (e.g., Theme Party), honestly", "points": 0 }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "Why are you buying this? / What's the real reason you're buying this?",
+      "subLabel": "No judgment, just pick the closest one.",
+      "options": [
+        { "text": "I genuinely need it, it's a gap in my wardrobe", "points": 2 },
+        { "text": "Mine's worn out/ no longer fits. Looking to upgrade/replace", "points": 1 },
+        { "text": "I just saw it and loved it", "points": 0 },
+        { "text": "It's on sale and felt like a good deal", "points": 0 }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Do you already own something similar?",
+      "subLabel": "Think hard.",
+      "options": [
+        { "text": "Nope, nothing like it", "points": 2 },
+        { "text": "Yeah but it's on its last legs", "points": 1 },
+        { "text": "Yeah and it's still going fine", "points": 0 }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Have you checked second-hand or borrowing first?",
+      "subLabel": "Community listings, Depop, Vinted, asking a mate…anything counts.",
+      "options": [
+        { "text": "Yes, couldn't find what I needed", "points": 2 },
+        { "text": "Looked, but I'd rather have new", "points": 1 },
+        { "text": "Honestly, haven't checked yet", "points": 0 }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "How long do you realistically think this'll last?",
+      "subLabel": "Rough estimate is fine.",
+      "options": [
+        { "text": "3+ years if I look after it", "points": 2 },
+        { "text": "About 1–2 years", "points": 1 },
+        { "text": "Probably less than a year", "points": 0 }
+      ]
+    }
+  ]
+}

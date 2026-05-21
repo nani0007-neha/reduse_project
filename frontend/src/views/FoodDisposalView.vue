@@ -1,28 +1,28 @@
 <template>
-    <div class="font_sub" style="font-size: 150%; text-align: center; margin-bottom: 5%;">
-        <label>What type of food waste do you want to dispose of?</label>
-    </div>
-    <div class="container col-12 col-md-6 offset-md-3 basic">
-        <select class="form-select" v-model="selectedCategory">
-            <option value="">All categories</option>
-            <option v-for="method in allMethods" :key="method.id" :value="method.food_category">
-                {{ method.label }}
-            </option>
-        </select>
-    </div>
-    <div v-if="loading" class="text-center mt-5">Loading...</div>
-    <div v-else-if="filteredMethods.length" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mt-3 px-3">
-        <div v-for="method in filteredMethods" :key="method.id" class="col">
-            <FoodDisposalCard :method="method" />
+    <RedUseHeader paragraph="Pick your food waste type and stop guessing. Green bin, recycling,
+            or
+            general waste, we got you." inter="Bin it " grace="Smart"></RedUseHeader>
+    <RedUseLoader :loading="loading" />
+    <div class="flex-grow-1 container" style="text-align: center;">
+        <div class="d-flex" style="justify-content: center; align-items: center;">
+            <div v-if="filteredMethods.length" class="row row-cols-md-4 g-3 mt-3">
+                <div v-for="(method, index) in filteredMethods" :key="method.id" style="display: block;">
+                    <FoodDisposalCard :icon="staticIcons.at(index)" :method="method"
+                        :stream-color="getColorByIndex(index).text" />
+                </div>
+            </div>
+            <div v-else class="text-center mt-5 text-muted">No disposal methods found.</div>
         </div>
     </div>
-    <div v-else class="text-center mt-5 text-muted">No disposal methods found.</div>
 </template>
 
 <script setup>
-import FoodDisposalCard from '@/components/FoodDisposalCard.vue';
+import FoodDisposalCard from '@/components/food/FoodDisposalCard.vue';
 import { onMounted, ref, computed } from 'vue';
 import { fetchDisposalMethods } from '@/utils/disposalmethodFetcher';
+import RedUseHeader from '@/components/misc/RedUseHeader.vue';
+import RedUseLoader from '@/components/misc/RedUseLoader.vue';
+import { getColorByIndex } from '@/utils/colorPalette';
 
 const allMethods = ref([]);
 const selectedCategory = ref('');
@@ -33,6 +33,8 @@ const filteredMethods = computed(() =>
         ? allMethods.value.filter(m => m.food_category === selectedCategory.value)
         : allMethods.value
 );
+
+const staticIcons = ['cookie', 'no_meals', 'dining', 'compost'];
 
 onMounted(async () => {
     allMethods.value = await fetchDisposalMethods();

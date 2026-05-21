@@ -5,6 +5,12 @@ body {
 }
 
 label {
+  color: black;
+  font-family: 'Nunito', sans-serif;
+}
+
+span {
+  color: black;
   font-family: 'Nunito', sans-serif;
 }
 
@@ -18,11 +24,12 @@ button {
 }
 
 .bg_main {
-  background-color: darkgreen;
+  background-color: #009387;
 }
 
+
 .bg_sub {
-  background-color: darkgreen;
+  background-color: #f5fffe;
 }
 
 .font_main {
@@ -44,4 +51,169 @@ button {
 .button_sub {
   background-color: beige;
   border-radius: 5rem;
+}
+
+.aura {
+  background-color: #d2ffcc;
+  color: #009387;
+  padding: 2rem;
+  border-radius: 5rem;
+}
+
+.text-special {
+  color: #009387;
+  font-family: 'Covered By Your Grace';
+}
+
+.tabs {
+  display: flex;
+  background: white;
+  border: 1px solid #E5E5DF;
+  border-radius: 8px;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #5C5C5C;
+  background-color: white;
+  border-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.tab.active {
+  background: #009387;
+  color: white;
+}
+
+/* .tab:focus {
+  background: #009387;
+  color: white;
+} */
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  color: black
+}
+
+
+.font-main {
+  color: #009387;
+}
+
+.font-grace {
+  font-family: 'Covered By Your Grace';
+  color: #009387;
+  /* font-size: clamp(24px, 5vw, 60px); */
+  margin-bottom: 20px;
+  word-spacing: -7px;
+}
+
+.questionaireButton {
+  background-color: #009387;
+  border-color: transparent;
+  border-radius: 1rem;
+  box-shadow: 5rem;
+  padding: 1rem;
+  width: auto;
+  color: white;
+  font-size: 100%;
+  transition: all 0.2s;
+}
+
+.questionaireSubButton {
+  background-color: transparent;
+  color: #555;
+  border-color: #555;
+  border-style: solid;
+}
+
+.questionaireButton:hover {
+  color: black;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+}
+
+p {
+  color: grey;
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.capture-option {
+  background: white;
+  border: 1px solid #E5E5DF;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.capture-option:hover {
+  border-color: #009387;
+  background-color: #f0f9f8;
+}
+
+
+.icon-md {
+  font-size: 32px;
+  color: #01696F;
+  margin-bottom: 8px;
+  /* color: #e0fffc; */
+}
+
+.btn-success {
+  background-color: #009387 !important;
+  border: none;
+  height: 38px;
+}
+
+.btn-success:hover {
+  background-color: #007f70 !important;
+}
+
+.section-separator {
+  border-top: 1px solid #E5E5DF;
+  padding-top: 16px;
+}
+
+.animate-in {
+  animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.tip-toggle {
+  display: flex;
+  gap: 3px;
+  font-size: 0.85rem;
+  color: black;
+  align-items: center;
+  /*cursor: pointer;*/
+}
+
+.tip-content {
+  background: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 1px solid #E5E5DF;
+  font-size: 0.8rem;
+  padding: 12px 16px;
+  text-align: left;
+  width: 100%;
 }
